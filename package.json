@@ -1,0 +1,14 @@
+{
+	"name": "spotmon",
+	"version": "0.1.0",
+	"author": "Kyle Hotchkiss <kyle@kylehotchkiss.com>",
+	"description": "SPOT GPS Tracking Monitor (and sanity checks)",
+	"dependencies": {
+		"async":     "0.1.x",
+	},
+	"license": "GPL",
+	"engines": {
+		"node": "0.8.x",
+		"npm":  "1.1.x"
+	}
+}
