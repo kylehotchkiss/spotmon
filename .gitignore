@@ -7,3 +7,6 @@ node_modules/
 # Localhost Configuration
 .env
 .env*
+
+# Misc. local things
+_*

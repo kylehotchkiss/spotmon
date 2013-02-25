@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html style="height: 100%; margin: 0;">
+	<head>
+		<style type="text/css">
+			a {  color: inherit; }
+			p { line-height: 1.5em; margin: 0 0 1.5em 0; }
+		</style>
+	</head>
+	<body style="height: 100%; margin: 0;">
+		<table cellpadding="30" style="background-color: #EEEEEE; color: #444444; height: 100%; font-family: Minion Pro, Georgia, serif; font-size: 16px; width: 100%;"><tr><td valign="top">
+			<table class="wrapper" cellpadding="30" style="background-color: #FFFFFF; line-height: 1.6em; margin: 0 auto; width: 600px;"><tr><td>
+				<h2 style="margin: 0 0 15px 0;">SPOT Location Update</h2>
+				
+				<p>
+					<img src="http://a.tiles.mapbox.com/v3/{{ mapboxkey }}/pin-m+ff0000({{ longitude }},{{ latitude }})/{{ longitude }},{{ latitude }},12/536x302.png" width="536" height="302" />
+				</p><p>
+					{{ message }}
+				</p>
+			</td></tr></table>
+			
+			<table class="footer" cellpadding="15" align="center" style="color: #888888; font-family: Helvetica Neue, Arial, sans-serif; font-size: 10px; text-align: center;"><tr><td>
+				<p>
+					You are currently tracking via <a href="http://spotmon.hotchkissmade.com/">SpotMON</a> / Want to <a href="http://spotmon.hotchkissmade.com/unsubscribe">unsubscribe or cancel tracking</a>? <br />
+					Maps provided by <a href="http://mapbox.com">Mapbox</a> /  Map data is provided by OpenStreetMap. <br />
+					SpotMON is a <a href="http://kylehotchkiss.com">Kyle Hotchkiss</a> / <a href="http://hotchkissmade.com">Hotchkissmade</a> project.
+				</p>
+			</td></tr></table>
+		</td></tr></table>
+	</body>
+</html>

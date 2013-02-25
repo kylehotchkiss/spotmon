@@ -1,10 +1,11 @@
 {
 	"name": "spotmon",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Kyle Hotchkiss <kyle@kylehotchkiss.com>",
 	"description": "SPOT GPS Tracking Monitor (and sanity checks)",
 	"dependencies": {
-		"async":     "0.1.x",
+		"swig": "x.x.x",
+		"async": "x.x.x"
 	},
 	"license": "GPL",
 	"engines": {
