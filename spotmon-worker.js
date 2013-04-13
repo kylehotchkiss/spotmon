@@ -19,11 +19,17 @@ var spot = require('./library/spot.js');
 var helpers = require('./library/helpers.js');
 var position = require('./library/position.js');
 
+var db_host = process.env.COUCHDB_HOST;
+var db_port = process.env.COUCHDB_PORT;
+var db_user = process.env.COUCHDB_USER;
+var db_pass = process.env.COUCHDB_PASS;
 var mapbox_key = process.env.MAPBOX_KEY;
 
 swig.init({
 	root: 'templates/'
 });
+
+var database = new couchdb( db_host, db_port, db_user, db_pass );
 
 
 ///////////////////////
