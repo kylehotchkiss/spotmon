@@ -5,7 +5,8 @@
 	"description": "SPOT GPS Tracking Monitor (and sanity checks)",
 	"dependencies": {
 		"swig": "x.x.x",
-		"async": "x.x.x"
+		"async": "x.x.x",
+		"couchdb-simple": "x.x.x"
 	},
 	"license": "GPL",
 	"engines": {

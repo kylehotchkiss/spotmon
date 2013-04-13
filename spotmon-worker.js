@@ -12,11 +12,11 @@
 ////////////////////////////////
 var swig = require('swig');
 var async = require('async');
+var couchdb = require('couchdb-simple');
 
 var meta = require('./package.json');
 var spot = require('./library/spot.js');
 var helpers = require('./library/helpers.js');
-var database = require('./library/database.js')
 var position = require('./library/position.js');
 
 var mapbox_key = process.env.MAPBOX_KEY;
@@ -50,7 +50,7 @@ var loop = function() {
 
 				if ( typeof queueItem.tracking === "undefined" ) {
 					queueItem.tracking = {};
-					
+
 					newTracking = true;
 				}
 
@@ -74,7 +74,7 @@ var loop = function() {
 								queueItem.tracking[ tracking[point].id ] = tracking[point];
 
 								changes++;
-								
+
 								lastPoint = tracking[point]
 							}
 						}
@@ -84,13 +84,15 @@ var loop = function() {
 							// CASE: Points Added, Notify User Accordingly - FORWARD //
 							///////////////////////////////////////////////////////////
 							var emailMessage;
-					
+
 							if ( newTracking ) {
 								//
 								// CASE: Start Monitoring Here.
 								//
 								console.log("Tracking Init/Ready");
 								emailMessage = "Your first point has been caught by SpotMON and your tracking is good to go!";
+
+								// this is a Virginiastar* fnstraj-ctl
 							} else {
 								if ( changes === 1 ) {
 									//
@@ -106,18 +108,18 @@ var loop = function() {
 									emailMessage = "Multiple point update: \n " + lastPoint.latitude + ", " + lastPoint.longitude;
 								}
 							}
-							
+
 							var template = swig.compileFile("emailLayout.htm");
-							
+
 							var email = template.render({
 								mapboxkey: mapbox_key,
 								message: emailMessage,
 								latitude: lastPoint.latitude,
 								longitude: lastPoint.longitude
 							});
-							
+
 							helpers.sendMail(queueItem.email, "Spot Location Update", email);
-				
+
 							database.write( "/spotmon/" + queueId, queueItem, function() {
 								callback();
 							});
@@ -165,6 +167,6 @@ function sleep() {
 ////////////////////////////////
 (function() {
 	console.log("\x1B[47;30m SpotMON backend, v." + meta.version + " \x1B[0m");
-	
+
 	advance();
 })();
